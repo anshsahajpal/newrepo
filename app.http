@@ -1,0 +1,52 @@
+### Register
+POST http://localhost:8000/user/auth/register
+
+{
+  "username":"ansh",
+  "email":"a@a.com",
+  "password":"a10312"
+}
+
+
+### Login Request
+POST http://localhost:8000/user/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username=a@a.com&password=a10312
+###
+@accesstoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhOTY4MzM3My0xOTRhLTQ5NjQtYjc0Ny05NjczZGFhYTIyYTQiLCJleHAiOjE3NDMxNDA1ODd9.tzmwLySrgp7zuxsU8BMGvbJJRrwAvxRztIVxvXgDPGc
+
+###
+GET http://localhost:8000/user/user
+Authorization: Bearer {{accesstoken}}
+
+###
+GET http://localhost:8000/task/tasks
+Authorization: Bearer {{accesstoken}}
+
+###
+POST http://localhost:8000/task/tasks
+Authorization: Bearer {{accesstoken}}
+
+{
+  "title": "complete this",
+  "description": "must be completed",
+  "state": "planned",
+  "priority": "medium",
+  "assigned_to": "11d5ea29-ddf0-403d-b1db-8fb587395808"
+}
+###
+
+###
+PATCH http://localhost:8000/task/tasks/76c611e0-4bf7-4f60-9934-858e7a0e8f1c
+Authorization: Bearer {{accesstoken}}
+
+{
+  "priority": "low"
+}
+###
+
+###
+GET http://localhost:8000/task/tasks/history/76c611e0-4bf7-4f60-9934-858e7a0e8f1c
+Authorization: Bearer {{accesstoken}}
+###

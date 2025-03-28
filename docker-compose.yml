@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  nginx_gateway:
+    image: nginx:alpine
+    ports:
+      - 8000:80
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - user_management
+      - task_management
+  user_management:
+    build: 
+      context: .
+      dockerfile: user_management/Dockerfile
+    ports:
+      - 9009:9009
+    environment:
+      - PYTHONPATH=/app
+  
+  task_management:
+    build: 
+      context: .
+      dockerfile: task_management/Dockerfile
+    ports:
+      - 9001:9001
+    environment:
+      - PYTHONPATH=/app
+      - USER_API_URL=user_management:9009
