@@ -10,6 +10,11 @@ services:
     depends_on:
       - user_management
       - task_management
+      - notification
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
   user_management:
     build: 
       context: .
@@ -27,4 +32,19 @@ services:
       - 9001:9001
     environment:
       - PYTHONPATH=/app
-      - USER_API_URL=user_management:9009
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis
+  notification:
+    build: 
+      context: .
+      dockerfile: notifications/Dockerfile
+    ports:
+      - 9002:9002
+    environment:
+      - PYTHONPATH=/app
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis

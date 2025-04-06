@@ -4,7 +4,6 @@ from routers.tasks import tasks_router
 from db import Base, engine
 import config
 
-config.check_config()
 
 
 routers = [tasks_router]

@@ -1,0 +1,7 @@
+fastapi
+sqlalchemy
+uvicorn
+redis
+pytest
+httpx
+websockets
