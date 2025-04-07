@@ -31,8 +31,3 @@ jobs:
       working-directory: ./user_management
       run: |
         python -m pytest tests/ -v --cov=user_management --cov-report=xml
-      
-    - name: Upload coverage
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./user_management/coverage.xml

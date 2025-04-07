@@ -1,5 +1,5 @@
 from sqlalchemy import Column, UUID, String, DATETIME, ForeignKey, Text
-from db import Base
+from task_management.db import Base
 import uuid
 from datetime import datetime
 

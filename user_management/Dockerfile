@@ -3,7 +3,7 @@ FROM python:3.10
 # Set working directory inside the container
 WORKDIR /app
 
-COPY ../shared /app/shared
+COPY ./shared /app/shared
 COPY ./user_management /app/user_management
 
 # Install dependencies

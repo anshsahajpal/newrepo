@@ -1,7 +1,7 @@
-from models.tasks import Tasks
+from task_management.models.tasks import Tasks
 from sqlalchemy.orm import Session
 import uuid
-from schemas.tasks import CreateTask, UpdateTask
+from task_management.schemas.tasks import CreateTask, UpdateTask
 from datetime import datetime
 from . import task_history
 

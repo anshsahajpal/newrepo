@@ -1,4 +1,4 @@
-from models.task_history import TaskHistory
+from task_management.models.task_history import TaskHistory
 from sqlalchemy.orm import Session
 import uuid
 from datetime import datetime

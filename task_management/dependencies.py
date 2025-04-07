@@ -1,6 +1,5 @@
 import requests
 from fastapi import HTTPException,Request
-import config
 
 # def is_authenticated(req: Request):
 #     print("http://"+config.USER_API_URL+"/auth/validate")

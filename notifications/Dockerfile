@@ -3,7 +3,7 @@ FROM python:3.10
 # Set working directory inside the container
 WORKDIR /app
 
-COPY ../shared /app/shared
+COPY ./shared /app/shared
 COPY ./notifications /app/notifications
 
 # Install dependencies

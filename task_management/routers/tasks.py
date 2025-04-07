@@ -1,12 +1,12 @@
 from uuid import uuid4
 from fastapi import APIRouter, Depends
 import redis
-from dependencies import is_authenticated
-from schemas.tasks import GetTask, CreateTask, UpdateTask
-from schemas.task_history import TaskHistory
-from db import get_db
-from operations import tasks as tasks_ops
-from operations import task_history as th_ops
+from task_management.dependencies import is_authenticated
+from task_management.schemas.tasks import GetTask, CreateTask, UpdateTask
+from task_management.schemas.task_history import TaskHistory
+from task_management.db import get_db
+from task_management.operations import tasks as tasks_ops
+from task_management.operations import task_history as th_ops
 from typing import List
 from shared.redis_pubsub import RedisPubsub
 

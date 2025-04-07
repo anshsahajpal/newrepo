@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 import uvicorn
-from routers.tasks import tasks_router
-from db import Base, engine
-import config
+from task_management.routers.tasks import tasks_router
+from task_management.db import Base, engine
+import task_management.config
 
 
 
