@@ -8,7 +8,6 @@ class User(BaseModel):
 
 class GetUser(User):
     id: UUID4
-    pass
 
 
 class CreateUser(User):
