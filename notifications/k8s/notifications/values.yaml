@@ -1,0 +1,22 @@
+replicaCount: 1
+appName: notifications
+replicas: 1
+
+container:
+  containerName: notifications
+  containerPort: 9002
+  image: notifications
+  imagePullPolicy: Never
+  env:
+    - name: PYTHONPATH
+      value: /app
+    - name: REDIS_HOST
+      value: redis
+    - name: REDIS_PORT
+      value: "6379"
+
+service:
+  type: ClusterIP
+  port: 9002
+  targetPort: 9002
+  name: notifications
